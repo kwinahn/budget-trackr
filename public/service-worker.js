@@ -9,6 +9,9 @@ const FILES_TO_CACHE = [
   './js/index.js',
   './manifest.json',
   './css/styles.css',
+  './icons/icon-72x72.png',
+  './icons/icon-144x144.png',
+  './icons/icon-152x152.png',
   './icons/icon-192x192.png',
   './icons/icon-512x512.png'    
 ];
@@ -50,14 +53,14 @@ self.addEventListener("fetch", function (event) {
         .then((cache) => {
           return fetch(event.request)
             .then((response) => {
-              // If response, save it and put in tha cache
+              //if response => save it and put in cache
               if (response.status === 200) {
                 cache.put(event.request.url, response.clone());
               }
               return response;
             })
             .catch((err) => {
-              //if response failed get it from tha cache
+              //if response failed => get it from cache
               return cache.match(event.request);
             });
         })
@@ -71,7 +74,7 @@ self.addEventListener("fetch", function (event) {
         if (response) {
           return response;
         } else if (event.request.headers.get("accept").includes("text/html")) {
-          // return the cached home page 
+          // return cached home page 
           return caches.match("/");
         }
       });
