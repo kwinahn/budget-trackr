@@ -10,7 +10,7 @@ Budget tracker application allows user to monitor their budget. User can add and
 ### Usage
 1. `npm start` to start the server 
 
-### Usage
+### Screenshot and Deployed Application
 ![screenshot](./assets/budget-trackr.png)
 Heroku: https://budget-trackr-an.herokuapp.com/
 
